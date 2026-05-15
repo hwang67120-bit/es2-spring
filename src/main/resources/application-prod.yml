@@ -1,12 +1,19 @@
 spring:
+  config:
+    import: aws-parameterstore:/camp-health-app/prod/
   datasource:
-    url: jdbc:mysql://localhost:3306/awsdb
-    username: root
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+    url: ${/camp-health-app/prod/db-url}
+    username: ${db-username}
+    password: ${db-password}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  info:
+    env:
+      enabled: true
+
+info:
+  team-name: ${team-name}
