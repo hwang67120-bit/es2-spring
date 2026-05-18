@@ -9,7 +9,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: health
+        include: info,health
+  info:
+    env:
+      enabled: true
+
+info:
+  team-name: ${team-name}
 
 logging:
   level:

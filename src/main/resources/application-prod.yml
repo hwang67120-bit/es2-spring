@@ -3,10 +3,8 @@ spring:
     import: aws-parameterstore:/camp-health-app/prod/
   cloud:
     aws:
-      access-key: ${AWS_ACCESS_KEY_ID}
-      secret-key: ${AWS_SECRET_ACCESS_KEY}
-    region:
-      static: ap-northeast-2
+      region:
+        static: ap-northeast-2
 
   datasource:
     url: ${db-url}
