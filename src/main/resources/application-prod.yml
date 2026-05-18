@@ -1,19 +1,21 @@
 spring:
   config:
     import: aws-parameterstore:/camp-health-app/prod/
+  cloud:
+    aws:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
+    region:
+      static: ap-northeast-2
+
   datasource:
-    url: ${/camp-health-app/prod/db-url}
+    url: ${db-url}
     username: ${db-username}
     password: ${db-password}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info
-  info:
-    env:
-      enabled: true
+team-name: ${team-name}
 
-info:
-  team-name: ${team-name}
+logging:
+  level:
+    io.awspring.cloud: DEBUG
+    software.amazon.awssdk: DEBUG
