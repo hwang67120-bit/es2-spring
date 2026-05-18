@@ -36,5 +36,8 @@ http://52.79.214.6:8080
 <img width="778" height="657" alt="스크린샷 2026-05-14 142741" src="https://github.com/user-attachments/assets/2602480b-f8c7-4fa5-9f2b-e8bc347ce90b" />
 <img width="802" height="574" alt="스크린샷 2026-05-14 142358" src="https://github.com/user-attachments/assets/d855f62c-8700-4e2e-96e5-2ba08f6e6909" />
 <img width="728" height="284" alt="image" src="https://github.com/user-attachments/assets/7b889b7a-a786-4456-be11-b8a481e8d1ec" />
-<img width="695" height="256" alt="image" src="https://github.com/user-attachments/assets/0a56f109-b13c-44b8-b243-b804c1272631" />
-<img width="702" height="211" alt="image" src="https://github.com/user-attachments/assets/e1b01b26-751f-4183-9113-ee109584a606" />
+<img width="1907" height="848" alt="스크린샷 2026-05-18 160407" src="https://github.com/user-attachments/assets/8bef1960-9b9d-4e8c-8be5-5b4b5064e4b4" />
+<img width="548" height="226" alt="image" src="https://github.com/user-attachments/assets/1d168716-756b-46e1-a58d-26f93477c8c8" />
+<img width="1209" height="253" alt="image" src="https://github.com/user-attachments/assets/783e4f22-7a99-4d2b-b994-10670c43c5b0" />
+
+
