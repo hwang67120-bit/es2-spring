@@ -3,6 +3,8 @@ spring:
     import: aws-parameterstore:/camp-health-app/prod/
   cloud:
     aws:
+      s3:
+        bucket: camp-profile-images-hwangsunnam
       region:
         static: ap-northeast-2
 

@@ -1,4 +1,10 @@
 spring:
+  cloud:
+    aws:
+      s3:
+        bucket: camp-profile-images-hwangsunnam
+      region:
+        static: ap-northeast-2
   datasource:
     url: jdbc:h2:mem:testdb
   jpa:
