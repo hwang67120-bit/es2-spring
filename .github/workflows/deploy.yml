@@ -33,3 +33,23 @@ jobs:
         run: |
           docker build -t hwangsunnam/ec2-spring:latest .
           docker push hwangsunnam/ec2-spring:latest
+
+      - name: Deploy to Private EC2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ap-northeast-2
+        run: |
+          aws ssm send-command \
+            --instance-ids i-0ae9d5aff885fea57 \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=[
+              "docker pull hwangsunnam/ec2-spring:latest",
+              "docker stop ec2-spring || true",
+              "docker rm ec2-spring || true",
+              "DB_URL=$(aws ssm get-parameter --name /camp-health-app/prod/db-url --query Parameter.Value --output text --region ap-northeast-2)",
+              "DB_USERNAME=$(aws ssm get-parameter --name /camp-health-app/prod/db-username --query Parameter.Value --output text --region ap-northeast-2)",
+              "DB_PASSWORD=$(aws ssm get-parameter --name /camp-health-app/prod/db-password --with-decryption --query Parameter.Value --output text --region ap-northeast-2)",
+              "docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod -e SPRING_DATASOURCE_URL=\"${DB_URL}\" -e SPRING_DATASOURCE_USERNAME=\"${DB_USERNAME}\" -e SPRING_DATASOURCE_PASSWORD=\"${DB_PASSWORD}\" --name ec2-spring --restart unless-stopped hwangsunnam/ec2-spring:latest"
+            ]' \
+            --region ap-northeast-2
