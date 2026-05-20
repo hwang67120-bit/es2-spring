@@ -1,6 +1,7 @@
 spring:
   application:
     name: ec2-spring
+    # CI/CD 테스트 - 2026.05.20
 
 server:
   port: 8080
