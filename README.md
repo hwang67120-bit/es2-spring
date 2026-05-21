@@ -1,9 +1,9 @@
 # AWS EC2 배포 프로젝트
 
 ## 퍼블릭 IP
-http://3.35.112.128
-springcamp.click
-https://springcamp.click/actuator/health
+- http://3.35.112.128
+- springcamp.click
+- https://springcamp.click/actuator/health
 
 ## API 엔드포인트
 
