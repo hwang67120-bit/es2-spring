@@ -3,6 +3,7 @@
 ## 퍼블릭 IP
 http://3.35.112.128
 springcamp.click
+https://springcamp.click/actuator/health
 
 ## API 엔드포인트
 
