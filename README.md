@@ -2,6 +2,7 @@
 
 ## 퍼블릭 IP
 http://3.35.112.128
+springcamp.click
 
 ## API 엔드포인트
 
@@ -40,6 +41,8 @@ http://3.35.112.128
 <img width="1134" height="110" alt="image" src="https://github.com/user-attachments/assets/ec6a5eaf-d21c-4bd9-b2c0-750824c0b1cc" />
 <img width="309" height="225" alt="image" src="https://github.com/user-attachments/assets/59d2815e-2dab-4617-994c-9c2881eca3ab" />
 <img width="1437" height="129" alt="image" src="https://github.com/user-attachments/assets/467dc593-448b-4e87-b338-b7f9d3a06e60" />
+<img width="1375" height="201" alt="image" src="https://github.com/user-attachments/assets/1a050907-0e45-461a-8ba6-2d016b4410b4" />
+
 
 
 
