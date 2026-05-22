@@ -42,7 +42,7 @@
   - AmazonSSMReadOnlyAccess
 
 ## 기술 스택
-- Spring Cloud AWS 4.0.0 (BOM 패턴)
+- Spring Cloud AWS 4.0.0 
 - AWS SDK S3Client + S3Presigner
 - Amazon CloudFront CDN
   
