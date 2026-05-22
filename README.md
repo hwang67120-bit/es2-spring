@@ -4,7 +4,11 @@
 - http://3.35.112.128
 - springcamp.click
 - https://springcamp.click/actuator/health
-- https://d3dedlekrjdefb.cloudfront.net/uploads/f5ed36b6-3978-427e-8bda-49dba8cdf97d%202026-05-18%20154340.png
+
+## CloudFront CDN (레벨6)
+- **CloudFront URL**: https://d3dedlekrjdefb.cloudfront.net/uploads/f5ed36b6-3978-427e-8bda-49dba8cdf97d%202026-05-18%20154340.png
+- **배포 ID**: EW8C15CP6DRE5
+- **Domain**: d3dedlekrjdefb.cloudfront.net
 
 ## API 엔드포인트
 
@@ -20,19 +24,28 @@
 - GET /actuator/health - 헬스체크
 - GET /actuator/info - 애플리케이션 정보
 
-## 레벨3: S3 프로필 이미지 업로드
+## 인프라 구성
 
-### 인프라 구성
-- **S3 버킷**: `camp-profile-images-hwangsunnam` (모든 퍼블릭 액세스 차단)
-- **IAM Role**: `EC2-S3-Access_Role`
-  - AmazonS3FullAccess
-  - AmazonSSMReadOnlyAccess
+### S3 + CloudFront (레벨3, 레벨6)
+- **S3 버킷**: `camp-profile-images-hwangsunnam`
+  - 모든 퍼블릭 액세스 차단
+  - CloudFront OAC를 통한 접근만 허용
+- **CloudFront 배포**: 
+  - Origin: S3 버킷
+  - OAC(Origin Access Control) 보안 설정
+  - 전 세계 엣지 로케이션 캐싱
 - **Presigned URL**: 7일 유효기간
 
-### 기술 스택
+### IAM Role
+- **EC2-S3-Access_Role**:
+  - AmazonS3FullAccess
+  - AmazonSSMReadOnlyAccess
+
+## 기술 스택
 - Spring Cloud AWS 4.0.0 (BOM 패턴)
 - AWS SDK S3Client + S3Presigner
-
+- Amazon CloudFront CDN
+  
 ### Presigned URL 예시
 업로드된 이미지는 7일간 유효한 서명된 URL로 다운로드 가능합니다.
 
