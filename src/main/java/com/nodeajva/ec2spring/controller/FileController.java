@@ -17,6 +17,11 @@ import com.nodeajva.ec2spring.service.S3Service;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 파일(프로필 이미지) 관리 컨트롤러
+ * S3 버킷에 이미지 업로드 및 Presigned URL 조회 기능 제공
+ */
+
 @RestController
 @RequestMapping("/api/members")
 @RequiredArgsConstructor
@@ -24,6 +29,12 @@ public class FileController {
 
 	private final S3Service s3Service;
 
+	/**
+	 * 프로필 이미지 업로드
+	 * @param id 회원 ID
+	 * @param file 업로드할 이미지 파일
+	 * @return FileUploadResponse - S3에 저장된 파일의 키(경로)
+	 */
 	@PostMapping("/{id}/profile-image")
 	public ResponseEntity<FileUploadResponse> uploadProfileImage(
 		@PathVariable Long id,
@@ -34,6 +45,11 @@ public class FileController {
 		return ResponseEntity.ok(new FileUploadResponse(key));
 	}
 
+	/**
+	 * 프로필 이미지 조회 (Presigned URL)
+	 * @param id 회원 ID
+	 * @return FileDownloadUrlResponse - 7일 유효한 Presigned URL
+	 */
 	@GetMapping("/{id}/profile-image")
 	public ResponseEntity<FileDownloadUrlResponse> getProfileImage(
 		@PathVariable Long id
