@@ -1,7 +1,14 @@
 # AWS EC2 배포 프로젝트
 
 ## 퍼블릭 IP
-http://3.35.112.128
+- http://3.35.112.128
+- springcamp.click
+- https://springcamp.click/actuator/health
+
+## CloudFront CDN (레벨6)
+- **CloudFront URL**: https://d3dedlekrjdefb.cloudfront.net/uploads/f5ed36b6-3978-427e-8bda-49dba8cdf97d%202026-05-18%20154340.png
+- **배포 ID**: EW8C15CP6DRE5
+- **Domain**: d3dedlekrjdefb.cloudfront.net
 
 ## API 엔드포인트
 
@@ -17,19 +24,28 @@ http://3.35.112.128
 - GET /actuator/health - 헬스체크
 - GET /actuator/info - 애플리케이션 정보
 
-## 레벨3: S3 프로필 이미지 업로드
+## 인프라 구성
 
-### 인프라 구성
-- **S3 버킷**: `camp-profile-images-hwangsunnam` (모든 퍼블릭 액세스 차단)
-- **IAM Role**: `EC2-S3-Access_Role`
-  - AmazonS3FullAccess
-  - AmazonSSMReadOnlyAccess
+### S3 + CloudFront (레벨3, 레벨6)
+- **S3 버킷**: `camp-profile-images-hwangsunnam`
+  - 모든 퍼블릭 액세스 차단
+  - CloudFront OAC를 통한 접근만 허용
+- **CloudFront 배포**: 
+  - Origin: S3 버킷
+  - OAC(Origin Access Control) 보안 설정
+  - 전 세계 엣지 로케이션 캐싱
 - **Presigned URL**: 7일 유효기간
 
-### 기술 스택
-- Spring Cloud AWS 4.0.0 (BOM 패턴)
-- AWS SDK S3Client + S3Presigner
+### IAM Role
+- **EC2-S3-Access_Role**:
+  - AmazonS3FullAccess
+  - AmazonSSMReadOnlyAccess
 
+## 기술 스택
+- Spring Cloud AWS 4.0.0 
+- AWS SDK S3Client + S3Presigner
+- Amazon CloudFront CDN
+  
 ### Presigned URL 예시
 업로드된 이미지는 7일간 유효한 서명된 URL로 다운로드 가능합니다.
 
@@ -39,6 +55,12 @@ http://3.35.112.128
 <img width="1907" height="848" alt="스크린샷 2026-05-18 160407" src="https://github.com/user-attachments/assets/8bef1960-9b9d-4e8c-8be5-5b4b5064e4b4" />
 <img width="1134" height="110" alt="image" src="https://github.com/user-attachments/assets/ec6a5eaf-d21c-4bd9-b2c0-750824c0b1cc" />
 <img width="309" height="225" alt="image" src="https://github.com/user-attachments/assets/59d2815e-2dab-4617-994c-9c2881eca3ab" />
+<img width="1437" height="129" alt="image" src="https://github.com/user-attachments/assets/467dc593-448b-4e87-b338-b7f9d3a06e60" />
+<img width="1375" height="201" alt="image" src="https://github.com/user-attachments/assets/1a050907-0e45-461a-8ba6-2d016b4410b4" />
+<img width="1622" height="185" alt="image" src="https://github.com/user-attachments/assets/c33431e4-9cb1-4760-880e-c69c8066def8" />
+
+
+
 
 
 <img width="548" height="226" alt="image" src="https://github.com/user-attachments/assets/1d168716-756b-46e1-a58d-26f93477c8c8" />
