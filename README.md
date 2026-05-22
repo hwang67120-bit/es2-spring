@@ -4,6 +4,7 @@
 - http://3.35.112.128
 - springcamp.click
 - https://springcamp.click/actuator/health
+- https://d3dedlekrjdefb.cloudfront.net/uploads/f5ed36b6-3978-427e-8bda-49dba8cdf97d%202026-05-18%20154340.png
 
 ## API 엔드포인트
 
